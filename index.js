@@ -2,7 +2,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const dotenv = require('dotenv')
 
-const port = 5000;
+const port = 5000 || process.env.PORT;
 const app = express();
 
 // Database connection
