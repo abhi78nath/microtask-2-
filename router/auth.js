@@ -47,7 +47,8 @@ router.post('/signup',[
         const authtoken = jwt.sign(data, JWT_SECRET);
         // console.log(jwtData);
 
-        res.json({authtoken})
+        res.json({user: user, token:authtoken, status:"Signup Successful"})
+        // res.send("Signup Successful")
 
     } catch( error) {
         console.log(error.message);
@@ -89,7 +90,7 @@ router.post('/login',[
 
         const authtoken = jwt.sign(data, JWT_SECRET)
         success = true
-        res.send({ success,authtoken} );
+        res.send({ success,authtoken, status:"Login Successful"} );
     } catch(error) {
         console.log(error.message);
         res.status(500).send('Internal Server error')
